@@ -1,3 +1,11 @@
+# Chem101 Content Databse User Interface
+
+This is the ReactJS UI for the Chem101 content database. It is a work in progress.
+
+Any commits to the master branch will deploy the code to AWS automatically.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
