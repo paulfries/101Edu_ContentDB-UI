@@ -1,0 +1,23 @@
+
+version: 0.2
+
+phases: 
+  pre_build:
+    commands:
+      #install dependencies
+      - echo Installing dependencies...
+      - npm install
+  build:
+    commands:
+      #build
+      - echo Building...
+      - npm run build
+  post_build:
+    commands:
+      - echo Invalidating the CloudFront Cache for the /index.html file
+      #- aws cloudfront create-invalidation --distribution-id "E2XX4W0MNF3QX2" --paths "/index.html" 
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: build
