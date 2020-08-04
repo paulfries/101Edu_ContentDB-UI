@@ -11,6 +11,7 @@ import { s3Upload } from "../libs/awsLib";
 export default function NewQuestion() {
   const file = useRef(null);
   const history = useHistory();
+  const questionStatus = "Incomplete";
   const [questionStatement, setQuestionStatement] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -39,7 +40,7 @@ export default function NewQuestion() {
     try {
       const attachment = file.current ? await s3Upload(file.current) : null;
   
-      await createQuestion({ questionStatement, attachment });
+      await createQuestion({ questionStatement, attachment, questionStatus });
       history.push("/");
     } catch (e) {
       onError(e);
