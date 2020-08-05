@@ -8,6 +8,7 @@ import "./NewQuestion.css";
 import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
 import Select from 'react-select';
+import Options from '../data/newStatusOptions';
 
 
 
@@ -17,10 +18,7 @@ export default function NewQuestion() {
   const [questionStatus, setQuestionStatus] = useState("Incomplete");
   const [questionStatement, setQuestionStatement] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const statusOptions = [
-    { value: 'Incomplete', label: 'Incomplete' },
-    { value: 'Ready for Review', label: 'Ready for Review' }
-  ]
+
  
   // handle onChange event of the Status dropdown
   const handleStatusChange = e => {
@@ -78,12 +76,12 @@ export default function NewQuestion() {
           className="basic-single"
           classNamePrefix="select"
           placeholder="Set the initial Status"
-          value={statusOptions.find(obj => obj.value === questionStatus)}
+          value={Options.find(obj => obj.value === questionStatus)}
           onChange={handleStatusChange}
-          defaultValue={statusOptions[0]}
+          defaultValue={Options[0]}
           isSearchable="true"
           name="questionStatus"
-          options={statusOptions}
+          options={Options}
         />
         </FormGroup>        
         <FormGroup controlId="questionStatement">

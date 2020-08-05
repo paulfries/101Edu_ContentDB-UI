@@ -8,6 +8,7 @@ import config from "../config";
 import "./Questions.css";
 import { s3Upload } from "../libs/awsLib";
 import Select from 'react-select';
+import Options from '../data/statusOptions';
 
 export default function Questions() {
     const file = useRef(null);
@@ -18,15 +19,6 @@ export default function Questions() {
     const [questionStatement, setQuestionStatement] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
-    const statusOptions = [
-      { value: 'Incomplete', label: 'Incomplete' },
-      { value: 'Ready for Review', label: 'Ready for Review' },
-      { value: 'First Review Complete', label: 'First Review Complete' },
-      { value: 'Second Review Complete', label: 'Second Review Complete' },
-      { value: 'Modification Needed', label: 'Modification Needed' },
-      { value: 'In Dev QA', label: 'In Dev/QA' },
-      { value: 'Live in Chem101', label: 'Live in Chem101' }
-    ]
 
 
       // handle onChange event of the Status dropdown
@@ -147,11 +139,11 @@ export default function Questions() {
           className="basic-single"
           classNamePrefix="select"
           placeholder="Set the initial Status"
-          value={statusOptions.find(obj => obj.value === questionStatus)}
+          value={Options.find(obj => obj.value === questionStatus)}
           onChange={handleStatusChange}
           isSearchable="true"
           name="questionStatus"
-          options={statusOptions}
+          options={Options}
           />
             </FormGroup>
 
