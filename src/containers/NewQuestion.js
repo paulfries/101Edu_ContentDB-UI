@@ -1,5 +1,4 @@
 import React, { useRef, useState, ReactDOM } from "react";
-import Select from 'react-select';
 import { useHistory } from "react-router-dom";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
@@ -8,6 +7,9 @@ import config from "../config";
 import "./NewQuestion.css";
 import { API } from "aws-amplify";
 import { s3Upload } from "../libs/awsLib";
+import Select from 'react-select';
+
+
 
 export default function NewQuestion() {
   const file = useRef(null);
@@ -15,15 +17,15 @@ export default function NewQuestion() {
   const [questionStatus, setQuestionStatus] = useState("Incomplete");
   const [questionStatement, setQuestionStatement] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
-// Dropdown Options
-// Acceptable values:  Incomplete,Ready for Review,First Review Complete,Second Review Complete,Modification Needed,Ready for Upload,In Dev QA,Live in Chem101.
-  // const statusOptions = [
-  //   { key: 1, text: 'Incomplete', value: "Incomplete" },
-  //   { key: 2, text: 'Ready for Review', value: "Ready for Review" },
-  // ]
-
+  const statusOptions = [
+    { value: 'Incomplete', label: 'Incomplete' },
+    { value: 'Ready for Review', label: 'Ready for Review' }
+  ]
  
+  // handle onChange event of the Status dropdown
+  const handleStatusChange = e => {
+    setQuestionStatus(e.value);
+  }
 
   function validateForm() {
     return questionStatement.length > 0;
@@ -72,13 +74,17 @@ export default function NewQuestion() {
       <form onSubmit={handleSubmit}>      
           <FormGroup controlId="questionStatus">
           <ControlLabel>Question Status</ControlLabel>
-          <FormControl
-            value={questionStatus}
-            componentClass="select"
-            onChange={e => setQuestionStatus(e.target.value)}>
-            <option value="Incomplete">Incomplete</option>
-            <option value="Ready for Review">Ready for Review</option>
-          </FormControl>
+          <Select
+          className="basic-single"
+          classNamePrefix="select"
+          placeholder="Set the initial Status"
+          value={statusOptions.find(obj => obj.value === questionStatus)}
+          onChange={handleStatusChange}
+          defaultValue={statusOptions[0]}
+          isSearchable="true"
+          name="questionStatus"
+          options={statusOptions}
+        />
         </FormGroup>        
         <FormGroup controlId="questionStatement">
         <ControlLabel>Question Statment</ControlLabel>

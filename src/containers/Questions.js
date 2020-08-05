@@ -7,6 +7,7 @@ import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./Questions.css";
 import { s3Upload } from "../libs/awsLib";
+import Select from 'react-select';
 
 export default function Questions() {
     const file = useRef(null);
@@ -17,6 +18,21 @@ export default function Questions() {
     const [questionStatement, setQuestionStatement] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
+    const statusOptions = [
+      { value: 'Incomplete', label: 'Incomplete' },
+      { value: 'Ready for Review', label: 'Ready for Review' },
+      { value: 'First Review Complete', label: 'First Review Complete' },
+      { value: 'Second Review Complete', label: 'Second Review Complete' },
+      { value: 'Modification Needed', label: 'Modification Needed' },
+      { value: 'In Dev QA', label: 'In Dev/QA' },
+      { value: 'Live in Chem101', label: 'Live in Chem101' }
+    ]
+
+
+      // handle onChange event of the Status dropdown
+    const handleStatusChange = e => {
+      setQuestionStatus(e.value);
+    }
 
   useEffect(() => {
     function loadQuestion() {
@@ -127,19 +143,16 @@ export default function Questions() {
           
           <FormGroup controlId="questionStatus">
           <ControlLabel>Question Status</ControlLabel>
-          <FormControl
-            value={questionStatus}
-            componentClass="select"
-            onChange={e => setQuestionStatus(e.target.value)}>
-            <option value="Incomplete">Incomplete</option>
-            <option value="Ready for Review">Ready for Review</option>
-            <option value="First Review Complete">First Review Complete</option>
-            <option value="Second Review Complete">Second Review Complete</option>
-            <option value="Modification Needed">Modification Needed</option>
-            <option value="Ready for Upload">Ready for Upload</option>
-            <option value="In Dev QA">In Dev / QA</option>
-            <option value="Live in Chem101">Live in Chem101</option>
-            </FormControl>
+          <Select
+          className="basic-single"
+          classNamePrefix="select"
+          placeholder="Set the initial Status"
+          value={statusOptions.find(obj => obj.value === questionStatus)}
+          onChange={handleStatusChange}
+          isSearchable="true"
+          name="questionStatus"
+          options={statusOptions}
+          />
             </FormGroup>
 
           <FormGroup controlId="questionStatement">
