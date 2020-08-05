@@ -13,6 +13,7 @@ export default function Questions() {
     const { id } = useParams();
     const history = useHistory();
     const [question, setQuestion] = useState(null);
+    const [questionStatus, setQuestionStatus] = useState("");
     const [questionStatement, setQuestionStatement] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
@@ -25,13 +26,14 @@ export default function Questions() {
     async function onLoad() {
       try {
         const question = await loadQuestion();
-        const { questionStatement, attachment } = question;
+        const { questionStatement, attachment, questionStatus  } = question;
 
         if (attachment) {
           question.attachmentURL = await Storage.vault.get(attachment);
         }
 
         setQuestionStatement(questionStatement);
+        setQuestionStatus(questionStatus);
         setQuestion(question);
       } catch (e) {
         onError(e);
@@ -82,6 +84,7 @@ export default function Questions() {
   
       await saveQuestion({
         questionStatement,
+        questionStatus,
         attachment: attachment || question.attachment
       });
       history.push("/");
@@ -121,7 +124,26 @@ export default function Questions() {
     <div className="Questions">
       {question && (
         <form onSubmit={handleSubmit}>
+          
+          <FormGroup controlId="questionStatus">
+          <ControlLabel>Question Status</ControlLabel>
+          <FormControl
+            value={questionStatus}
+            componentClass="select"
+            onChange={e => setQuestionStatus(e.target.value)}>
+            <option value="Incomplete">Incomplete</option>
+            <option value="Ready for Review">Ready for Review</option>
+            <option value="First Review Complete">First Review Complete</option>
+            <option value="Second Review Complete">Second Review Complete</option>
+            <option value="Modification Needed">Modification Needed</option>
+            <option value="Ready for Upload">Ready for Upload</option>
+            <option value="In Dev QA">In Dev / QA</option>
+            <option value="Live in Chem101">Live in Chem101</option>
+            </FormControl>
+            </FormGroup>
+
           <FormGroup controlId="questionStatement">
+          <ControlLabel>Question Statement</ControlLabel>
             <FormControl
               value={questionStatement}
               componentClass="textarea"
