@@ -80,7 +80,7 @@ export default function Questions() {
     if (file.current && file.current.size > config.MAX_ATTACHMENT_SIZE) {
       alert(
         `Please pick a file smaller than ${
-          config.MAX_ATTACHMENT_SIZE / 1000000
+          config.MAX_ATTACHMENT_SIZE / 2097152
         } MB.`
       );
       return;
