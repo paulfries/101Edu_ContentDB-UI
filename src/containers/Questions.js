@@ -14,6 +14,8 @@ export default function Questions() {
     const file = useRef(null);
     const { id } = useParams();
     const history = useHistory();
+//    const [questionType, setQuestionType] = useState("Multiple-Choice"); // Probably remove before production
+    const questionType = "Multiple-Choice"; // Probably remove before production
     const [question, setQuestion] = useState(null);
     const [questionStatus, setQuestionStatus] = useState("");
     const [questionStatement, setQuestionStatement] = useState("");
@@ -42,6 +44,7 @@ export default function Questions() {
 
         setQuestionStatement(questionStatement);
         setQuestionStatus(questionStatus);
+        //setQuestionType(questionType);
         setQuestion(question);
       } catch (e) {
         onError(e);
@@ -93,6 +96,7 @@ export default function Questions() {
       await saveQuestion({
         questionStatement,
         questionStatus,
+        questionType,
         attachment: attachment || question.attachment
       });
       history.push("/");

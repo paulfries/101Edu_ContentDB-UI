@@ -18,6 +18,7 @@ export default function NewQuestion() {
   const [questionStatus, setQuestionStatus] = useState("Incomplete");
   const [questionStatement, setQuestionStatement] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const questionType = "Multiple-Choice";
 
  
   // handle onChange event of the Status dropdown
@@ -52,7 +53,7 @@ export default function NewQuestion() {
     try {
       const attachment = file.current ? await s3Upload(file.current) : null;
   
-      await createQuestion({ questionStatement, attachment, questionStatus });
+      await createQuestion({ questionStatement, attachment, questionStatus, questionType });
       history.push("/");
     } catch (e) {
       onError(e);
