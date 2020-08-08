@@ -2,7 +2,7 @@
 
 This is the ReactJS UI for the Chem101 content database. It is a work in progress.
 
-Any commits to the master branch will deploy the code to AWS automatically.
+Any commits to the master branch will deploy the code to AWS automatically thanks to CodePipeline.
 
 
 
