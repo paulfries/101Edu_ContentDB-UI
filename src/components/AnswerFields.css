@@ -1,0 +1,27 @@
+.AnswerGroup {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /**height: 150px;
+  font-size: 24px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 50px;**/
+}
+
+.checkboxsize {
+  position: relative;
+  top: 10px;
+  right: 53px;
+  height: 25px;
+  width: 25px;
+}
+
+.answerfield {
+  display: inline-block;
+  position: center;
+}
