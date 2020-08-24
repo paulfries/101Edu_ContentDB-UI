@@ -16,7 +16,7 @@ export default function NewQuestion() {
   const history = useHistory();
   const [questionStatus, setQuestionStatus] = useState("Incomplete");
   const [questionStatement, setQuestionStatement] = useState("");
-  const [answerFields, setAnswerFields] = useState("");
+  //const [answerCorrect1, setAnswerCorrect1] = useState("");
   //const [mcOption1, setMcOption1] = useState("");
   //const [mcOption1Feedback, setMcOption1Feedback] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +57,6 @@ export default function NewQuestion() {
         attachment,
         questionStatus,
         questionType,
-        answerFields,
       });
       history.push("/");
     } catch (e) {
@@ -105,8 +104,7 @@ export default function NewQuestion() {
           <ControlLabel for="Answers">Answers and Feedback</ControlLabel>
           <AnswerFields
             id="Answers"
-            value={answerFields}
-            onChange={(e) => setAnswerFields(e.target.value)}
+            onChange={(e) => setQuestionStatement(e.target.value)}
           />
         </FormGroup>
         <LoaderButton
