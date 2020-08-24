@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AnswerFields.css";
 
-export default function AnswerFields() {
+export default function AnswerFields({answerFields}) {
   const [answerCorrect1, setAnswerCorrect1] = useState("");
   const [mcOption1, setMcOption1] = useState("");
   const [mcOption1Feedback, setMcOption1Feedback] = useState("");
@@ -22,7 +22,7 @@ export default function AnswerFields() {
   const [mcOption5, setMcOption5] = useState("");
   const [mcOption5Feedback, setMcOption5Feedback] = useState("");
   const [mcAttachment5, setmcAttachment5] = useState(null);
-
+return answerFields.map((answerFields) => {
   return (
     <form>
       <div class="AnswerGroup">
@@ -32,7 +32,7 @@ export default function AnswerFields() {
           </label>
           <input
             //class="checkboxsize"
-            value={answerCorrect1}
+            value={answerFields.answerCorrect1}
             type="checkbox"
             id="checkbox"
             onChange={(e) => setAnswerCorrect1(e.target.value)}
@@ -43,7 +43,7 @@ export default function AnswerFields() {
           <input
             // class="answerfield"
             id="answer1"
-            value={mcOption1}
+            value={answerFields.mcOption1}
             type="text"
             onChange={(e) => setMcOption1(e.target.value)}
           />
@@ -51,7 +51,7 @@ export default function AnswerFields() {
             Answer Feedback #1
           </label>
           <input
-            value={mcOption1Feedback}
+            value={answerFields.mcOption1Feedback}
             type="text"
             id="answerreason1"
             onChange={(e) => setMcOption1Feedback(e.target.value)}
@@ -170,4 +170,5 @@ export default function AnswerFields() {
       </div>
     </form>
   );
+});
 }
