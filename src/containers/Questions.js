@@ -20,6 +20,7 @@ export default function Questions() {
   const [question, setQuestion] = useState(null);
   const [questionStatus, setQuestionStatus] = useState("");
   const [questionStatement, setQuestionStatement] = useState("");
+  const [answerFields, setAnswerFields] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -97,6 +98,7 @@ export default function Questions() {
         questionStatement,
         questionStatus,
         questionType,
+        answerFields,
         attachment: attachment || question.attachment,
       });
       history.push("/");
@@ -180,7 +182,8 @@ export default function Questions() {
             <ControlLabel for="Answers">Answers and Feedback</ControlLabel>
             <AnswerFields
               id="Answers"
-              onChange={(e) => setQuestionStatement(e.target.value)}
+              value={answerFields}
+              onChange={(e) => setAnswerFields(e.target.value)}
             />
           </FormGroup>
           <LoaderButton
