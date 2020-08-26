@@ -10,6 +10,8 @@ import { s3Upload } from "../libs/awsLib";
 import Select from "react-select";
 import Options from "../data/statusOptions";
 import AnswerFields from "../components/AnswerFields";
+import QuestionUnit from "../data/questionUnit";
+import QuestionTopic from "../data/questionTopic";
 
 export default function Questions() {
   const file = useRef(null);
@@ -22,10 +24,20 @@ export default function Questions() {
   const [questionStatement, setQuestionStatement] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [questionUnit, setQuestionUnit] = useState("");
+  const [questionTopic, setQuestionTopic] = useState("");
 
   // handle onChange event of the Status dropdown
   const handleStatusChange = (e) => {
     setQuestionStatus(e.value);
+  };
+
+  const handleUnitChange = (e) => {
+    setQuestionUnit(e.value);
+  };
+
+  const handleTopicChange = (e) => {
+    setQuestionTopic(e.value);
   };
 
   useEffect(() => {
@@ -36,7 +48,7 @@ export default function Questions() {
     async function onLoad() {
       try {
         const question = await loadQuestion();
-        const { questionStatement, attachment, questionStatus } = question;
+        const { questionStatement, attachment, questionStatus, questionUnit, questionTopic } = question;
 
         if (attachment) {
           question.attachmentURL = await Storage.vault.get(attachment);
@@ -44,8 +56,10 @@ export default function Questions() {
 
         setQuestionStatement(questionStatement);
         setQuestionStatus(questionStatus);
-        //setQuestionType(questionType);
+        setQuestionUnit(questionUnit);
+        setQuestionTopic(questionTopic);
         setQuestion(question);
+        //setQuestionType(questionType);
       } catch (e) {
         onError(e);
       }
@@ -97,6 +111,8 @@ export default function Questions() {
         questionStatement,
         questionStatus,
         questionType,
+        questionUnit,
+        questionTopic,
         attachment: attachment || question.attachment,
       });
       history.push("/");
@@ -136,6 +152,34 @@ export default function Questions() {
     <div className="Questions">
       {question && (
         <form onSubmit={handleSubmit}>
+          <FormGroup controlId="questionUnit">
+            <ControlLabel>Unit</ControlLabel>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              placeholder="Set the initial Status"
+              value={QuestionUnit.find((obj) => obj.value === questionUnit)}
+              onChange={handleUnitChange}
+              isSearchable="true"
+              name="questionUnit"
+              options={QuestionUnit}
+            />
+          </FormGroup>
+
+          <FormGroup controlId="questionTopic">
+            <ControlLabel>Topic</ControlLabel>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              placeholder="Set the initial Status"
+              value={QuestionTopic.find((obj) => obj.value === questionTopic)}
+              onChange={handleTopicChange}
+              isSearchable="true"
+              name="questionTopic"
+              options={QuestionTopic}
+            />
+          </FormGroup>
+
           <FormGroup controlId="questionStatus">
             <ControlLabel>Question Status</ControlLabel>
             <Select
