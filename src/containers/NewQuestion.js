@@ -109,7 +109,7 @@ export default function NewQuestion() {
             <Select
               className="basic-single"
               classNamePrefix="select"
-              placeholder="Set the topic
+              placeholder="Set the topic"
               value={QuestionTopic.find((obj) => obj.value === questionTopic)}
               onChange={handleTopicChange}
               isSearchable="true"
