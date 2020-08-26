@@ -95,7 +95,7 @@ export default function NewQuestion() {
             <Select
               className="basic-single"
               classNamePrefix="select"
-              placeholder="Set the initial Status"
+              placeholder="Set the Unit"
               value={QuestionUnit.find((obj) => obj.value === questionUnit)}
               onChange={handleUnitChange}
               isSearchable="true"
@@ -109,7 +109,7 @@ export default function NewQuestion() {
             <Select
               className="basic-single"
               classNamePrefix="select"
-              placeholder="Set the initial Status"
+              placeholder="Set the topic
               value={QuestionTopic.find((obj) => obj.value === questionTopic)}
               onChange={handleTopicChange}
               isSearchable="true"
