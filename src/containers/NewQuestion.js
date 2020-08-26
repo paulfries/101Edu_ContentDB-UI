@@ -10,6 +10,9 @@ import { s3Upload } from "../libs/awsLib";
 import Select from "react-select";
 import Options from "../data/newStatusOptions";
 import AnswerFields from "../components/AnswerFields";
+import QuestionUnit from "../data/questionUnit";
+import QuestionTopic from "../data/questionTopic";
+
 
 export default function NewQuestion() {
   const file = useRef(null);
@@ -21,10 +24,21 @@ export default function NewQuestion() {
   //const [mcOption1Feedback, setMcOption1Feedback] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const questionType = "Multiple-Choice";
+  const [questionUnit, setQuestionUnit] = useState("");
+  const [questionTopic, setQuestionTopic] = useState("");
+
 
   // handle onChange event of the Status dropdown
   const handleStatusChange = (e) => {
     setQuestionStatus(e.value);
+  };
+
+  const handleUnitChange = (e) => {
+    setQuestionUnit(e.value);
+  };
+
+  const handleTopicChange = (e) => {
+    setQuestionTopic(e.value);
   };
 
   function validateForm() {
@@ -57,6 +71,8 @@ export default function NewQuestion() {
         attachment,
         questionStatus,
         questionType,
+        questionUnit,
+        questionTopic,
       });
       history.push("/");
     } catch (e) {
@@ -74,6 +90,34 @@ export default function NewQuestion() {
   return (
     <div className="NewQuestion">
       <form onSubmit={handleSubmit}>
+      <FormGroup controlId="questionUnit">
+            <ControlLabel>Unit</ControlLabel>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              placeholder="Set the initial Status"
+              value={QuestionUnit.find((obj) => obj.value === questionUnit)}
+              onChange={handleUnitChange}
+              isSearchable="true"
+              name="questionUnit"
+              options={QuestionUnit}
+            />
+          </FormGroup>
+
+          <FormGroup controlId="questionTopic">
+            <ControlLabel>Topic</ControlLabel>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              placeholder="Set the initial Status"
+              value={QuestionTopic.find((obj) => obj.value === questionTopic)}
+              onChange={handleTopicChange}
+              isSearchable="true"
+              name="questionTopic"
+              options={QuestionTopic}
+            />
+          </FormGroup>
+
         <FormGroup controlId="questionStatus">
           <ControlLabel>Question Status</ControlLabel>
           <Select
