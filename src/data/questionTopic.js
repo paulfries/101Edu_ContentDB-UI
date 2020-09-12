@@ -1,14 +1,41 @@
 const questionTopic = [
-    { value: 'Topic 1', label: 'Topic 1' },
-    { value: 'Topic 2', label: 'Topic 2' },
-    { value: 'Topic 3', label: 'Topic 3' },
-    { value: 'Topic 4', label: 'Topic 4' },
-    { value: 'Topic 5', label: 'Topic 5' },
-    { value: 'Topic 6', label: 'Topic 6' },
-    { value: 'Topic 7', label: 'Topic 7' },
-    { value: 'Topic 8', label: 'Topic 8' },
-    { value: 'Topic 9', label: 'Topic 9' },
-    { value: 'Topic 10', label: 'Topic 10' }
-  ]
+  {
+    value: "Acid-Base Properties of Salts",
+    label: "Acid-Base Properties of Salts",
+  },
+  {
+    value: "Acid-Base Titrations and Indicators",
+    label: "Acid-Base Titrations and Indicators",
+  },
+  {
+    value: "Applications of Fission and Fusion",
+    label: "Applications of Fission and Fusion",
+  },
+  {
+    value: "Assigning Electrons to Atomic Orbitals",
+    label: "Assigning Electrons to Atomic Orbitals",
+  },
+  {
+    value: "Atomic Number, Mass Number, Atomic Symbol, and Isotopes",
+    label: "Atomic Number, Mass Number, Atomic Symbol, and Isotopes",
+  },
+  { value: "Atomic Spectra", label: "Atomic Spectra" },
+  {
+    value: "Autoionization of Water (Kw)",
+    label: "Autoionization of Water (Kw)",
+  },
+  {
+    value: "Boiling Point Elevation and Freezing Point Depression",
+    label: "Boiling Point Elevation and Freezing Point Depression",
+  },
+  {
+    value: "Bond Energies, Bond Length, and Enthalpy of Reaction",
+    label: "Bond Energies, Bond Length, and Enthalpy of Reaction",
+  },
+  {
+    value: "Classification and States of Matter",
+    label: "Classification and States of Matter",
+  },
+];
 
-  export default questionTopic
+export default questionTopic;

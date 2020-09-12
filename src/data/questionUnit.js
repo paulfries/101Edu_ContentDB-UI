@@ -1,14 +1,20 @@
 const questionUnit = [
-    { value: 'Unit 1', label: 'Unit 1' },
-    { value: 'Unit 2', label: 'Unit 2' },
-    { value: 'Unit 3', label: 'Unit 3' },
-    { value: 'Unit 4', label: 'Unit 4' },
-    { value: 'Unit 5', label: 'Unit 5' },
-    { value: 'Unit 6', label: 'Unit 6' },
-    { value: 'Unit 7', label: 'Unit 7' },
-    { value: 'Unit 8', label: 'Unit 8' },
-    { value: 'Unit 9', label: 'Unit 9' },
-    { value: 'Unit 10', label: 'Unit 10' }
-  ]
+  { value: "Acid-Base Equilibria", label: "Acid-Base Equilibria" },
+  {
+    value: "Alcohols, Ethers, Thiols, and Sulfides",
+    label: "Alcohols, Ethers, Thiols, and Sulfides",
+  },
+  { value: "Aldehydes and Ketones", label: "Aldehydes and Ketones" },
+  { value: "Alkanes", label: "Alkanes" },
+  { value: "Carbohydrates", label: "Carbohydrates" },
+  { value: "Chemical Kinetics", label: "Chemical Kinetics" },
+  { value: "Components of Matter", label: "Components of Matter" },
+  { value: "Enzymes", label: "Enzymes" },
+  {
+    value: "Haloalkanes (Alkyl Halides)",
+    label: "Haloalkanes (Alkyl Halides)",
+  },
+  { value: "Study of Chemistry", label: "Study of Chemistry" },
+];
 
-  export default questionUnit
+export default questionUnit;
