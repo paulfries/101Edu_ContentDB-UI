@@ -1,8 +1,47 @@
 .NewQuestion form {
-    padding-bottom: 15px;
-  }
-  
-  .NewQuestion form textarea {
-    height: 150px;
-    font-size: 24px;
-  }
+  padding-bottom: 15px;
+}
+
+.NewQuestion form textarea {
+  height: 150px;
+  font-size: 24px;
+}
+
+.NewQuestion form label.CorrectChkBox {
+  padding-top: 2px;
+  padding-left: 27.5%;
+  position: static;
+  font-weight: normal;
+}
+
+/* Answer and Feedback Group Titles */
+.NewQuestion form label.answerTitle {
+  padding-top: 5px;
+}
+
+/* Answer and Feedback Field Labels */
+.NewQuestion form label.fieldTitle {
+  font-weight: normal;
+  padding-top: 10px;
+}
+
+/* Answer/Feedback Attachment Labels */
+.NewQuestion form label.answerAttachment {
+  padding-top: 5px;
+  font-weight: normal;
+}
+
+/* Time Suggestion Label */
+.NewQuestion form label.timeSuggested {
+  padding-right: 10px;
+}
+
+/* Time Suggestion Field */
+.NewQuestion form input.timeField {
+  width: 40px;
+}
+
+/* Solution Field */
+.NewQuestion form label.solutionTitle {
+  padding-top: 10px;
+}
