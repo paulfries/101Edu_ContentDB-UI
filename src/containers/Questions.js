@@ -136,6 +136,7 @@ export default function Questions() {
         setThoughtType(thoughtType);
         setTimeSuggested(timeSuggested);
         setQuestion(question);
+        setCorrectAnswer1Thru5(correctAnswer1Thru5);
         setMcOption1(mcOption1);
         setMcOption1Feedback(mcOption1Feedback);
         setMcCorrectAnswer1(mcCorrectAnswer1);
