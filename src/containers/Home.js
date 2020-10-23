@@ -76,7 +76,7 @@ export default function Home() {
   function renderQuestions() {
     return (
       <div className="questions">
-        <PageHeader>My Chem101 Questions</PageHeader>
+        <PageHeader>My Chem101 Question Bank</PageHeader>
         <ListGroup>
           {!isLoading && renderQuestionsList(questions)}
         </ListGroup>
