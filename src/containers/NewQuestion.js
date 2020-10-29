@@ -204,6 +204,7 @@ export default function NewQuestion() {
   return (
     <div className="NewQuestion">
       <form onSubmit={handleSubmit}>
+      <div className="containerDiv">
         <FormGroup controlId="questionStatus">
           <ControlLabel>Question Status:</ControlLabel>
           <Select
@@ -351,19 +352,45 @@ export default function NewQuestion() {
             onChange={(e) => setTimeSuggested(e.target.value)}
           />
         </FormGroup>
+        </div>
 
+        <div className="containerDiv">
         <FormGroup controlId="questionStatement">
-          <ControlLabel>Question Statment:</ControlLabel>
+          <div className="headerTitle">
+          <ControlLabel>Question Prompt</ControlLabel>
+          </div>
           <FormControl
             value={questionStatement}
             componentClass="textarea"
             onChange={(e) => setQuestionStatement(e.target.value)}
           />
+          <div className="textBox">
+            <text className="textStyling">
+              The question prompt will be immediately visible to your students when this authored question is opened. 
+              It is recommended to keep the prompt as short and concise as possible 
+              so it is easily readable on student mobile devices such as smartphones.
+            </text>
+          </div>
         </FormGroup>
+        </div>
+        <div className="containerDiv">
         <FormGroup controlId="file">
-          <ControlLabel>Attachment</ControlLabel>
+          <div className="headerTitle">
+          <ControlLabel>Question Image</ControlLabel>
+          </div>
+          <div className="attachmentPreview">
           <FormControl onChange={handleFileChange} type="file" />
+          </div>
+          <div className="textBox">
+            <text className="textStyling">
+              You may choose to upload one image to be associated with your authored question. 
+              The question image can be used to include tables of data, figures, or other relevant information associated with the question. 
+              It is recommend to upload a square image so it is easily readable on student mobile devices such as smartphones.
+            </text>
+          </div>
         </FormGroup>
+        </div>
+
 
         <FormGroup>
           <FormGroup controlId="AnswerGroup1">
