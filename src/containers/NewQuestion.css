@@ -45,3 +45,65 @@
 .NewQuestion form label.solutionTitle {
   padding-top: 10px;
 }
+
+.containerDiv {
+  width: 85%;
+  background-color: rgb(248, 249, 250);
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 10px 30px 10px 20px;
+  margin: 50px auto;
+
+}
+
+.headerTitle {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: normal;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.textBox {
+  text-align: center;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 10px;
+}
+
+.textStyling {
+  font-size: 0.9em;
+
+
+}
+
+.attachmentPreview {
+  width: 60%;
+  margin: auto;
+  padding: 20px 20px;
+}
+
+.file {
+  border-radius: 3px;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  height: 36px;
+  padding: 0px 16px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  min-width: 70px;
+  transition: all 0.3s ease-out;
+}
+
+@media only screen and (max-width: 600px) {
+  .textBox {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+}

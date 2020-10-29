@@ -58,7 +58,7 @@ export default function Home() {
 
   function renderLander() {
     return (
-      <div className="lander">
+      <div className="lander container-fluid">
         <h1>Chem101 Content Database</h1>
         <p>A test question and answer database for the Chem101 Application</p>
         <div>
