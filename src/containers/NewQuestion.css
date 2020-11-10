@@ -49,7 +49,7 @@
 .containerDiv {
   width: 85%;
   background-color: rgb(248, 249, 250);
-  border: 1px solid black;
+  border: 1px solid rgb(202, 208, 215);
   border-radius: 15px;
   padding: 10px 30px 10px 20px;
   margin: 50px auto;
@@ -74,7 +74,6 @@
 .textStyling {
   font-size: 0.9em;
 
-
 }
 
 .attachmentPreview {
@@ -83,20 +82,16 @@
   padding: 20px 20px;
 }
 
-.file {
-  border-radius: 3px;
-  -webkit-appearance: none;
-  border: none;
-  outline: none;
-  background: transparent;
-  height: 36px;
-  padding: 0px 16px;
-  margin: 0;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  min-width: 70px;
-  transition: all 0.3s ease-out;
+.createButtonStyle {
+  width: 85%;
+  margin: 50px auto;
+  /*background-color: rgb(228, 58, 38);*/
+}
+
+.chkBoxStyle {
+  padding-left: 50%;
+  margin: 20px auto;
+  width: 50%;
 }
 
 @media only screen and (max-width: 600px) {

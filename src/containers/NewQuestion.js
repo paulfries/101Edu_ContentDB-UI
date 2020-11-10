@@ -391,7 +391,7 @@ export default function NewQuestion() {
         </FormGroup>
         </div>
 
-
+        <div className="containerDiv">
         <FormGroup>
           <FormGroup controlId="AnswerGroup1">
             <dev>
@@ -400,6 +400,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+              <div className="chkBoxStyle">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -409,6 +410,7 @@ export default function NewQuestion() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
+              </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -443,6 +445,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+            <div className="chkBoxStyle">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -452,6 +455,7 @@ export default function NewQuestion() {
                 onChange={handleClick2}
                 type="checkbox"
               />
+              </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -488,6 +492,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+            <div className="chkBoxStyle">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -497,6 +502,7 @@ export default function NewQuestion() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
+              </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -532,6 +538,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+            <div className="chkBoxStyle">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -541,6 +548,7 @@ export default function NewQuestion() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
+              </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -576,6 +584,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+            <div className="chkBoxStyle">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -585,6 +594,7 @@ export default function NewQuestion() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
+              </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -614,6 +624,8 @@ export default function NewQuestion() {
             </FormGroup>
           </FormGroup>
         </FormGroup>
+        </div>
+        <div className="containerDiv">
         <FormGroup>
           <ControlLabel className="solutionTitle" for="solution">
             Solution:
@@ -625,6 +637,8 @@ export default function NewQuestion() {
             onChange={(e) => setSolution(e.target.value)}
           />
         </FormGroup>
+        </div>
+        <div className="createButtonStyle">
         <LoaderButton
           block
           type="submit"
@@ -635,6 +649,7 @@ export default function NewQuestion() {
         >
           Create
         </LoaderButton>
+        </div>
       </form>
     </div>
   );
