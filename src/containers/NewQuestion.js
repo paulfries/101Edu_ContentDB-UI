@@ -340,18 +340,29 @@ export default function NewQuestion() {
             options={ThoughtTypeList}
           />
         </FormGroup>
+        </div>
+        <div className="containerDiv">
         <FormGroup>
+          <div className="headerTitle">
           <label className="timeSuggested" for="timeSuggested">
-            Time Suggested:
+            Suggested Time
           </label>
+          </div>
           <input
-            className="timeField"
+            className="timeField, suggestedTimeCentered"
             defaultValue={timeSuggested}
             id="timeSuggested"
             componentClass="textbox"
             onChange={(e) => setTimeSuggested(e.target.value)}
           />
         </FormGroup>
+        <div className="textBox">
+            <text className="textStyling">
+              The question prompt will be immediately visible to your students when this authored question is opened. 
+              It is recommended to keep the prompt as short and concise as possible 
+              so it is easily readable on student mobile devices such as smartphones.
+            </text>
+          </div>
         </div>
 
         <div className="containerDiv">
@@ -363,6 +374,7 @@ export default function NewQuestion() {
             value={questionStatement}
             componentClass="textarea"
             onChange={(e) => setQuestionStatement(e.target.value)}
+            placeholder="e.g. How many protons are in carbon-12 atom?"
           />
           <div className="textBox">
             <text className="textStyling">
@@ -393,6 +405,7 @@ export default function NewQuestion() {
 
 
         <FormGroup>
+        <div className="containerDiv">
           <FormGroup controlId="AnswerGroup1">
             <dev>
               <ControlLabel className="answerTitle" for="Answers">
@@ -400,6 +413,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+              <div className="chkBoxAlign">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -409,6 +423,7 @@ export default function NewQuestion() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
+            </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -434,8 +449,9 @@ export default function NewQuestion() {
               </ControlLabel>
               <FormControl onChange={handleFileChange} type="file" />
             </FormGroup>
+            
           </FormGroup>
-
+          
           <FormGroup controlId="AnswerGroup2">
             <dev>
               <ControlLabel className="answerTitle" for="Answers">
@@ -443,6 +459,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+            <div className="chkBoxAlign">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -452,6 +469,7 @@ export default function NewQuestion() {
                 onChange={handleClick2}
                 type="checkbox"
               />
+            </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -488,6 +506,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+            <div className="chkBoxAlign">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -497,6 +516,7 @@ export default function NewQuestion() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
+            </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -532,6 +552,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+            <div className="chkBoxAlign">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -541,6 +562,7 @@ export default function NewQuestion() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
+            </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -576,6 +598,7 @@ export default function NewQuestion() {
               </ControlLabel>
             </dev>
             <dev>
+            <div className="chkBoxAlign">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -585,6 +608,7 @@ export default function NewQuestion() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
+            </div>
             </dev>
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
@@ -613,8 +637,10 @@ export default function NewQuestion() {
               <FormControl onChange={handleFileChange} type="file" />
             </FormGroup>
           </FormGroup>
+          </div>
         </FormGroup>
         <FormGroup>
+        <div className="containerDiv">
           <ControlLabel className="solutionTitle" for="solution">
             Solution:
           </ControlLabel>
@@ -624,7 +650,9 @@ export default function NewQuestion() {
             componentClass="textarea"
             onChange={(e) => setSolution(e.target.value)}
           />
+        </div>
         </FormGroup>
+        <div className="loaderButtonStyle">
         <LoaderButton
           block
           type="submit"
@@ -635,6 +663,7 @@ export default function NewQuestion() {
         >
           Create
         </LoaderButton>
+        </div>
       </form>
     </div>
   );
