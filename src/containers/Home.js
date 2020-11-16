@@ -65,7 +65,7 @@ export default function Home() {
 
   function renderLander() {
     return (
-      <div className="lander">
+      <div className="lander container-fluid">
         <h1>Chem101 Content Database</h1>
         <p>A test question and answer database for the Chem101 Application</p>
         <div>
@@ -83,6 +83,7 @@ export default function Home() {
   function renderQuestions() {
     return (
       <div className="questions">
+
         <div className="titleheader">My Chem101 Questions</div>
         <div className="catbtn">
         <Button variant="outlined" size="medium"><FolderOpenIcon style={{color:"red"}}/>&nbsp;<b>New Category</b></Button>
@@ -107,6 +108,9 @@ export default function Home() {
           </Typography>
         </AccordionDetails>
       </Accordion>
+
+        <PageHeader>My Chem101 Question Bank</PageHeader>
+
         <ListGroup>
           {!isLoading && renderQuestionsList(questions)}
         </ListGroup>

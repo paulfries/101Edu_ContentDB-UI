@@ -29,6 +29,7 @@
   .Home .lander div a:first-child {
     margin-right: 20px;
   }
+
   .titleheader{
     font-size: 20px;
     font-weight: bold;
@@ -39,4 +40,8 @@
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 1px;
+=======
+  .container-fluid {
+    background-color: rgb(248, 249, 250);
+
   }
