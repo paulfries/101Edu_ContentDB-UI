@@ -6,8 +6,15 @@ import "./Home.css";
 import { API } from "aws-amplify";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
-
-
+import Button from '@material-ui/core/Button';
+import FolderOpenIcon from '@material-ui/icons/FolderOpen';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Typography from '@material-ui/core/Typography';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import AddIcon from '@material-ui/icons/Add';
 export default function Home() {
   const [questions, setQuestions] = useState([]);
   const { isAuthenticated } = useAppContext();
@@ -76,7 +83,30 @@ export default function Home() {
   function renderQuestions() {
     return (
       <div className="questions">
-        <PageHeader>My Chem101 Questions</PageHeader>
+        <div className="titleheader">My Chem101 Questions</div>
+        <div className="catbtn">
+        <Button variant="outlined" size="medium"><FolderOpenIcon style={{color:"red"}}/>&nbsp;<b>New Category</b></Button>
+        </div>
+        <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography variant="h5">Samplel Question</Typography>
+        <ButtonGroup color="primary" aria-label="outlined primary button group" style={{marginLeft:"60%"}}>
+        <Button><AddIcon style={{color:"red"}}/> Create Question</Button>
+        <Button>Rename</Button>
+        <Button style={{color:"red"}}>Delete</Button>
+      </ButtonGroup>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+            sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
         <ListGroup>
           {!isLoading && renderQuestionsList(questions)}
         </ListGroup>
