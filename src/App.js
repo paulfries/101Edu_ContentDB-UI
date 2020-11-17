@@ -8,6 +8,59 @@ import { AppContext } from "./libs/contextLib";
 import { onError } from "./libs/errorLib";
 import Routes from "./Routes";
 import "./App.css";
+import LogoUrl from './assets/images/logo.png';
+import SettingsIcon from '@material-ui/icons/Settings';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import IconButton from '@material-ui/core/IconButton';
+function Logo(){
+  return(
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-6 logo-header text-right pr-2">
+          <img src={LogoUrl} alt="Chem 101" className="logo"/>
+        </div>
+        <div className="col-sm-5 text-right">
+        <LinkContainer to="/settings">
+            <NavItem><SettingsIcon style={{fontSize:"15px"}}/></NavItem>
+        </LinkContainer>
+        </div>
+      </div>
+    </div>
+  )
+}
+function Navigation(){
+  return(
+    <div className="container-fluid" id="navigation">
+      <div className="row">
+        <div className="col-sm-4 nav">
+          Assignment
+        </div>
+        <div className="col-sm-4 nav">
+          Class
+        </div>
+        <div className="col-sm-4 nav" style={{color:"#E43A26"}}>
+          Questions
+        </div>
+        
+      </div>
+    </div>
+  )
+}
+
+function TitleBar(){
+  return(
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-12 text-center" style={{backgroundColor:"#E43A26",color:"white"}}>
+          <h4>Questions</h4>
+        </div>
+        
+      </div>
+    </div>
+  )
+}
 
 function App() {
   const history = useHistory();
@@ -32,19 +85,18 @@ function App() {
     setIsAuthenticating(false);
   }
 
-  async function handleLogout() {
-    await Auth.signOut();
-
-    userHasAuthenticated(false);
-
-    history.push("/login");
-  }
+  
 
   return (
     !isAuthenticating && (
-      <div className="App container">
+      <div className="App container-fluid">
+        
         <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
+          {isAuthenticated? (<><Logo />
+                <Navigation />
+               <TitleBar /></>):
+               (<>
+                <Navbar.Header>
             <Navbar.Brand>
               <Link to="/">Home</Link>
             </Navbar.Brand>
@@ -52,25 +104,19 @@ function App() {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-              {isAuthenticated ? (
-                <>
-                  <LinkContainer to="/settings">
-                    <NavItem>Settings</NavItem>
-                  </LinkContainer>
-                  <NavItem onClick={handleLogout}>Logout</NavItem>
-                </>
-              ) : (
-                <>
+              
                   <LinkContainer to="/signup">
                     <NavItem>Signup</NavItem>
                   </LinkContainer>
                   <LinkContainer to="/login">
                     <NavItem>Login</NavItem>
                   </LinkContainer>
-                </>
-              )}
+              
             </Nav>
           </Navbar.Collapse>
+               </>)
+               }
+         
         </Navbar>
         <ErrorBoundary>
           <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
