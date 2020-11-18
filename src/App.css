@@ -5,3 +5,37 @@
 .App .navbar-brand {
   font-weight: bold;
 }
+.logo{
+  width:80px;
+}
+.setting-btn{
+  float: right;
+  margin-top: -5rem;
+  display:relative;
+}
+.nav{
+  text-align: center;
+  padding:5px 0px 5px 0px ;
+  color:gray;
+}
+.container-fluid{
+  padding: 0px !important;
+  margin: 0px !important;
+  width: 100%;
+}
+ul,li{
+  list-style-type: none;
+}
+.settingicon{
+  font-size: medium;
+}
+.row{
+  margin:0px;
+}
+
+.logo-header{
+  margin-bottom: 2rem;
+}
+#navigation{
+  margin-bottom: 2rem;
+}
