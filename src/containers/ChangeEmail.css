@@ -1,10 +1,63 @@
 @media all and (min-width: 480px) {
+  /*style for change email page*/
   .ChangeEmail {
-    padding: 60px 0;
+    padding: 0% 15%;
+    border-style: solid;
+    border-radius: 5%;
+    width: 45%;
+    height: 60%; 
+    margin-top: 10%;
+    margin-left: auto; 
+    margin-right: auto;
+    background: linear-gradient(to bottom,  #e43a30 15%, #2d5071 20%);
+  }
+  /*style for change email form */ 
+  .ChangeEmail form {
+    margin: 25% auto;
+    max-width: 620%;
+    display: block;
+    margin-top: 0%;
+    color: white;
+    margin-bottom: 45%;
+    height: -5px;
+    font-size: 14px;
   }
 
-  .ChangeEmail form {
-    margin: 0 auto;
-    max-width: 320px;
+   /* style for signup in sign up header */
+   .ChangeEmail .formHeader h1 {
+    display: inline-block;
+    color: white;
+    border-radius: 15%;
+    padding-left: 20%;
+    margin-bottom: 30%;
+    margin-top: 5%;
+    
   }
+  /* style for conformation code header */
+  .ChangeEmail .formHeader h2{
+    display: inline-block;
+    color: white;
+    border-radius: 15%;
+    padding-left: 13%;
+    margin-bottom: 30%;
+    margin-top: 10%;
+    font-size: 28px;
+  }
+
+  /* style for please check email for code */
+  .ChangeEmail form span.help-block {
+    font-size: 14px;
+    padding-bottom: 10px;
+    color: white;
+  }
+
+    /* style for update email button */
+    .ChangeEmail Button{
+     background: #e43a30;
+     border: black;
+     color: white;
+  
+  
+  
+     }
 }
