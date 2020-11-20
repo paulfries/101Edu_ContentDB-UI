@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import {
+  Button,
   HelpBlock,
   FormGroup,
   FormControl,
@@ -12,7 +13,7 @@ import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./Signup.css";
 import { Auth } from "aws-amplify";
-
+// store what user enters in the form
 export default function Signup() {
   const [fields, handleFieldChange] = useFormFields({
     email: "",
@@ -24,7 +25,7 @@ export default function Signup() {
   const [newUser, setNewUser] = useState(null);
   const { userHasAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
-
+  //checks if fields are empty
   function validateForm() {
     return (
       fields.email.length > 0 &&
@@ -32,11 +33,11 @@ export default function Signup() {
       fields.password === fields.confirmPassword
     );
   }
-
+  //checks if fields are empty
   function validateConfirmationForm() {
     return fields.confirmationCode.length > 0;
   }
-
+  //call back function
   async function handleSubmit(event) {
     event.preventDefault();
   
@@ -54,7 +55,7 @@ export default function Signup() {
       setIsLoading(false);
     }
   }
-  
+  //call back function
   async function handleConfirmationSubmit(event) {
     event.preventDefault();
   
@@ -71,11 +72,14 @@ export default function Signup() {
       setIsLoading(false);
     }
   }
-
+  //confirmation code validation form
   function renderConfirmationForm() {
     return (
       <form onSubmit={handleConfirmationSubmit}>
         <FormGroup controlId="confirmationCode" bsSize="large">
+        <div className="formHeader">
+        <h1>Confirmation Code</h1>
+        </div>
           <ControlLabel>Confirmation Code</ControlLabel>
           <FormControl
             autoFocus
@@ -85,23 +89,27 @@ export default function Signup() {
           />
           <HelpBlock>Please check your email for the code.</HelpBlock>
         </FormGroup>
-        <LoaderButton
+        <Button
           block
           type="submit"
           bsSize="large"
           isLoading={isLoading}
-          disabled={!validateConfirmationForm()}
+          
         >
           Verify
-        </LoaderButton>
+        </Button>
       </form>
     );
   }
 
+  //sign up form validation
   function renderForm() {
     return (
-      <form onSubmit={handleSubmit}>
+       <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
+        <div className="signupFormHeader">
+        <h2>Sign Up</h2>
+        </div>
           <ControlLabel>Email</ControlLabel>
           <FormControl
             autoFocus
@@ -126,15 +134,15 @@ export default function Signup() {
             value={fields.confirmPassword}
           />
         </FormGroup>
-        <LoaderButton
+        <Button
           block
           type="submit"
           bsSize="large"
           isLoading={isLoading}
-          disabled={!validateForm()}
+          
         >
           Signup
-        </LoaderButton>
+        </Button>
       </form>
     );
   }
