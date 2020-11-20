@@ -1,19 +1,64 @@
-@media all and (min-width: 480px) {
-    .Login {
-      padding: 60px 0;
-    }
-  
-    .Login form {
-      margin: 0 auto;
-      max-width: 320px;
-    }
 
-    .Login form a {
-      margin-bottom: 15px;
-      display: block;
-      font-size: 14px;
-    }
+@media all and (min-width: 480px) {
+  /* style for login page */
+  .Login {
+   
+    padding: 0% 15%;
+    border-style: solid;
+    border-radius: 5%;
+    width: 45%;
+    height: 60%; 
+    margin-top: 10%;
+    margin-left: auto; 
+    margin-right: auto;
+    background: linear-gradient(to bottom,  #e43a30 15%, #2d5071 20%);
+     
+  }
+  /* style for login form */
+  .Login form {
+    margin: 25% auto;
+    max-width: 620%;
+    display: block;
+    margin-top: 20%;
+    color: white;
+    margin-bottom: 25%;
+    
+  }
+   /* style for forget password link */
+  .Login form a {
+    margin-bottom: 15%;
+    display: block;
+    font-size: 14px;
+    color: white;
+    
+  }
+  /* style for login button */
+  .Login Button{
+    background: #e43a30;
+    border: black;
+  }
+  /* style for log in sign up header */
+  .Login .formHeader h1{
+    display: inline-block;
+    color: white;
+    border-radius: 15%;
+    padding-left: 10%;
+    margin-bottom: 10%;
+    margin-top: 8%;
+   
+  }
+  /* style for signup button */
+  .Login .btn{
+    color:white;
+    margin: 4% 0%;
+    font-size: 20px;
+    height: 55px;
+    text-align: center;
+    position: relative;
+    margin-top: -1%;
+    margin-bottom: 4%;
+    
+ 
 
   }
-
-  
+}
