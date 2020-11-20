@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import { useHistory } from "react-router-dom";
 import {
+  Button,
   HelpBlock,
   FormGroup,
   FormControl,
@@ -11,7 +12,7 @@ import LoaderButton from "../components/LoaderButton";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./ChangeEmail.css";
-
+// store what user enters in the form
 export default function ChangeEmail() {
   const history = useHistory();
   const [codeSent, setCodeSent] = useState(false);
@@ -21,15 +22,15 @@ export default function ChangeEmail() {
   });
   const [isConfirming, setIsConfirming] = useState(false);
   const [isSendingCode, setIsSendingCode] = useState(false);
-
+  //checks if fields are empty
   function validateEmailForm() {
     return fields.email.length > 0;
   }
-
+  //checks if fields are empty
   function validateConfirmForm() {
     return fields.code.length > 0;
   }
-
+  //call back function
   async function handleUpdateClick(event) {
     event.preventDefault();
 
@@ -44,7 +45,7 @@ export default function ChangeEmail() {
       setIsSendingCode(false);
     }
   }
-
+  //call back function
   async function handleConfirmClick(event) {
     event.preventDefault();
 
@@ -59,10 +60,14 @@ export default function ChangeEmail() {
       setIsConfirming(false);
     }
   }
-
+  // change email validation form
   function renderUpdateForm() {
     return (
       <form onSubmit={handleUpdateClick}>
+        <div className="formHeader">
+          <h1>Change Email</h1>
+        </div>
+        <div className="Form">
         <FormGroup bsSize="large" controlId="email">
           <ControlLabel>Email</ControlLabel>
           <FormControl
@@ -72,23 +77,28 @@ export default function ChangeEmail() {
             onChange={handleFieldChange}
           />
         </FormGroup>
-        <LoaderButton
+        </div>
+        <Button
           block
           type="submit"
           bsSize="large"
           isLoading={isSendingCode}
-          disabled={!validateEmailForm()}
+          
         >
           Update Email
-        </LoaderButton>
+        </Button>
       </form>
+    
     );
   }
-
+  //confirmation code validation form
   function renderConfirmationForm() {
     return (
       <form onSubmit={handleConfirmClick}>
         <FormGroup bsSize="large" controlId="code">
+        <div className="formHeader">
+        <h2>Confirmation Code</h2>
+        </div>
           <ControlLabel>Confirmation Code</ControlLabel>
           <FormControl
             autoFocus
@@ -100,15 +110,15 @@ export default function ChangeEmail() {
             Please check your email ({fields.email}) for the confirmation code.
           </HelpBlock>
         </FormGroup>
-        <LoaderButton
+        <Button
           block
           type="submit"
           bsSize="large"
           isLoading={isConfirming}
-          disabled={!validateConfirmForm()}
+          
         >
           Confirm
-        </LoaderButton>
+        </Button>
       </form>
     );
   }
