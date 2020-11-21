@@ -1,16 +1,65 @@
 @media all and (min-width: 480px) {
+     /* style for signup page */
     .Signup {
-      padding: 60px 0;
+      padding: 0% 15%;
+      border-style: solid;
+      border-radius: 5%;
+      width: 45%;
+      height: 60%; 
+      margin-top: 10%;
+      margin-left: auto; 
+      margin-right: auto;
+      background: linear-gradient(to bottom,  #e43a30 15%, #2d5071 20%);
     }
-  
+    /* style for signup form */
     .Signup form {
-      margin: 0 auto;
-      max-width: 320px;
+      margin: 25% auto;
+      max-width: 620%;
+      display: block;
+      margin-top: 10%;
+      color: white;
+      margin-bottom: 25%;
+      height: -10px;
+      font-size: 14px;
+     
     }
-  }
-  
-  .Signup form span.help-block {
-    font-size: 14px;
-    padding-bottom: 10px;
-    color: #999;
-  }
+    }
+    /* style for please check email for code */
+    .Signup form span.help-block {
+      font-size: 14px;
+      padding-bottom: 10px;
+      color: white;
+    }
+    /* style for confirmation code header */
+    .Signup .formHeader h1{
+      display: inline-block;
+      color: white;
+      border-radius: 15%;
+      padding-left: 5%;
+      margin-bottom: 30%;
+      margin-top: -10%;
+      
+
+    }
+    /* style for signup in sign up header */
+    .Signup .signupFormHeader h2 {
+      display: inline-block;
+      color: white;
+      border-radius: 15%;
+      padding-left: 30%;
+      margin-bottom: 13%;
+      margin-top: -8%;
+   
+      
+    }
+
+
+    /* style for login button */
+    .Signup Button{
+      background: #e43a30;
+      border: black;
+      color: white;
+
+
+
+    }

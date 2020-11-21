@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import { Link } from "react-router-dom";
 import {
+  Button,
   HelpBlock,
   FormGroup,
   Glyphicon,
@@ -12,7 +13,7 @@ import LoaderButton from "../components/LoaderButton";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./ResetPassword.css";
-
+// store what user enters in the form
 export default function ResetPassword() {
   const [fields, handleFieldChange] = useFormFields({
     code: "",
@@ -24,11 +25,11 @@ export default function ResetPassword() {
   const [confirmed, setConfirmed] = useState(false);
   const [isConfirming, setIsConfirming] = useState(false);
   const [isSendingCode, setIsSendingCode] = useState(false);
-
+  //checks if fields are empty
   function validateCodeForm() {
     return fields.email.length > 0;
   }
-
+  //checks if fields are empty
   function validateResetForm() {
     return (
       fields.code.length > 0 &&
@@ -36,7 +37,7 @@ export default function ResetPassword() {
       fields.password === fields.confirmPassword
     );
   }
-
+  //call back function
   async function handleSendCodeClick(event) {
     event.preventDefault();
 
@@ -50,7 +51,7 @@ export default function ResetPassword() {
       setIsSendingCode(false);
     }
   }
-
+  //call back function
   async function handleConfirmClick(event) {
     event.preventDefault();
 
@@ -68,11 +69,14 @@ export default function ResetPassword() {
       setIsConfirming(false);
     }
   }
-
+  //reset password validation
   function renderRequestCodeForm() {
     return (
       <form onSubmit={handleSendCodeClick}>
         <FormGroup bsSize="large" controlId="email">
+          <div className="formHeader">
+            <h1>Reset Password</h1>
+          </div>
           <ControlLabel>Email</ControlLabel>
           <FormControl
             autoFocus
@@ -81,23 +85,26 @@ export default function ResetPassword() {
             onChange={handleFieldChange}
           />
         </FormGroup>
-        <LoaderButton
+        <Button
           block
           type="submit"
           bsSize="large"
           isLoading={isSendingCode}
-          disabled={!validateCodeForm()}
+          
         >
           Send Confirmation
-        </LoaderButton>
+        </Button>
       </form>
     );
   }
-
+  //confirm password reset validation
   function renderConfirmationForm() {
     return (
       <form onSubmit={handleConfirmClick}>
         <FormGroup bsSize="large" controlId="code">
+        <div className="resetformHeader">
+            <h1>Confirm Reset</h1>
+          </div>
           <ControlLabel>Confirmation Code</ControlLabel>
           <FormControl
             autoFocus
@@ -126,22 +133,23 @@ export default function ResetPassword() {
             onChange={handleFieldChange}
           />
         </FormGroup>
-        <LoaderButton
+        <Button
           block
           type="submit"
           bsSize="large"
           isLoading={isConfirming}
-          disabled={!validateResetForm()}
+        
         >
           Confirm
-        </LoaderButton>
+        </Button>
       </form>
     );
   }
-
+  //successful password reset validation
   function renderSuccessMessage() {
     return (
       <div className="success">
+        <h3>Success</h3>
         <Glyphicon glyph="ok" />
         <p>Your password has been reset.</p>
         <p>
