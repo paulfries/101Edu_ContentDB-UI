@@ -85,7 +85,7 @@ export default function Home() {
       <div className="questions">
         <div className="titleheader">My Chem101 Questions</div>
         <div className="catbtn">
-        <Button variant="outlined" size="medium"><FolderOpenIcon style={{color:"red"}}/>&nbsp;<b>New Category</b></Button>
+        <Button variant="outlined" size="medium"><FolderOpenIcon style={{color:"#e43a30"}}/>&nbsp;<b>New Category</b></Button>
         </div>
         <Accordion>
         <AccordionSummary
@@ -95,9 +95,11 @@ export default function Home() {
         >
           <Typography variant="h5">Samplel Question</Typography>
         <ButtonGroup color="primary" aria-label="outlined primary button group" style={{marginLeft:"60%"}}>
-        <Button><AddIcon style={{color:"red"}}/> Create Question</Button>
+        <LinkContainer to="/NewQuestion">
+        <Button><AddIcon style={{color:"#e43a30"}}/> Create Question</Button>
+        </LinkContainer>
         <Button>Rename</Button>
-        <Button style={{color:"red"}}>Delete</Button>
+        <Button style={{color:"#e43a30"}}>Delete</Button>
       </ButtonGroup>
         </AccordionSummary>
         <AccordionDetails>

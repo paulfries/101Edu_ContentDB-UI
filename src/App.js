@@ -19,7 +19,9 @@ function Logo(){
     <div className="container-fluid">
       <div className="row">
         <div className="col-sm-6 logo-header text-right pr-2">
+        <Link to="/">
           <img src={LogoUrl} alt="Chem 101" className="logo"/>
+          </Link>
         </div>
         <div className="col-sm-5 text-right">
         <LinkContainer to="/settings">
@@ -40,7 +42,7 @@ function Navigation(){
         <div className="col-sm-4 nav">
           Class
         </div>
-        <div className="col-sm-4 nav" style={{color:"#E43A26"}}>
+        <div className="col-sm-4 nav" style={{color:"#E43A30"}}>
           Questions
         </div>
         
@@ -53,7 +55,7 @@ function TitleBar(){
   return(
     <div className="container-fluid">
       <div className="row">
-        <div className="col-sm-12 text-center" style={{backgroundColor:"#E43A26",color:"white"}}>
+        <div className="col-sm-12 text-center" style={{backgroundColor:"#E43A30",color:"white"}}>
           <h4>Questions</h4>
         </div>
         
@@ -84,8 +86,6 @@ function App() {
 
     setIsAuthenticating(false);
   }
-
-  
 
   return (
     !isAuthenticating && (

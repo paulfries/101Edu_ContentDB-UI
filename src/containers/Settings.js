@@ -7,7 +7,7 @@ import { onError } from "../libs/errorLib";
 import config from "../config";
 import "./Settings.css";
 import { Auth } from "aws-amplify";
-
+// store what user enters in the form
 export default function Settings() {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +17,7 @@ export default function Settings() {
   useEffect(() => {
     onLoad();
   }, []);
-
+  //call back function
   async function onLoad() {
     try {
       await Auth.currentSession();
@@ -31,6 +31,7 @@ export default function Settings() {
 
     setIsAuthenticating(false);
   }
+  //call back function
   async function handleLogout() {
     await Auth.signOut();
 
@@ -38,7 +39,7 @@ export default function Settings() {
 
     history.push("/login");
   }
-
+  //email, password, logout buttons
   return (
     <div className="Settings">
       <LinkContainer to="/settings/email">
