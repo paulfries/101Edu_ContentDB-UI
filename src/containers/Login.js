@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./Login.css";
 import { Link } from "react-router-dom";
-// store what user enters in the form
+
 export default function Login() {
   const { userHasAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
@@ -15,11 +15,11 @@ export default function Login() {
     email: "",
     password: ""
   });
-//checks if fields are empty
+
   function validateForm() {
     return fields.email.length > 0 && fields.password.length > 0;
   }
-//call back function
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -33,14 +33,10 @@ export default function Login() {
       setIsLoading(false);
     }
   }
-//login/password form validation, forgot passwrod link and signup link
+
   return (
     <div className="Login">
-      <div className="formHeader">
-        <h1>Log In or Sign Up</h1>
-        </div>
       <form onSubmit={handleSubmit}>
-      
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
           <FormControl
@@ -58,26 +54,17 @@ export default function Login() {
             onChange={handleFieldChange}
           />
         </FormGroup>
-        <Button
+        <Link to="/login/reset">Forgot password?</Link>
+        <LoaderButton
           block
           type="submit"
           bsSize="large"
           isLoading={isLoading}
+          disabled={!validateForm()}
         >
           Login
-        </Button>
-        <Button
-          block
-          type="submit"
-          bsSize="large"
-          isLoading={isLoading}
-        >
-         <Link to="/signup" className="btn">
-            Signup
-          </Link>
-        </Button>
-        <Link to="/login/reset">Forgot password?</Link>
-        </form>
+        </LoaderButton>
+      </form>
     </div>
   );
 }
