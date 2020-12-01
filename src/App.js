@@ -19,7 +19,9 @@ function Logo(){
     <div className="container-fluid">
       <div className="row">
         <div className="col-sm-6 logo-header text-right pr-2">
+        <Link to="/">
           <img src={LogoUrl} alt="Chem 101" className="logo"/>
+          </Link>
         </div>
         <div className="col-sm-5 text-right">
         <LinkContainer to="/settings">
@@ -84,8 +86,6 @@ function App() {
 
     setIsAuthenticating(false);
   }
-
-  
 
   return (
     !isAuthenticating && (
