@@ -25,20 +25,20 @@ export default function Home() {
       if (!isAuthenticated) {
         return;
       }
-  
+
       try {
         const questions = await loadQuestions();
         setQuestions(questions);
       } catch (e) {
         onError(e);
       }
-  
+
       setIsLoading(false);
     }
-  
+
     onLoad();
   }, [isAuthenticated]);
-  
+
   function loadQuestions() {
     return API.get("questions", "/questions");
   }
@@ -93,7 +93,7 @@ export default function Home() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography variant="h5">Samplel Question</Typography>
+          <Typography variant="h5">Sample Question</Typography>
         <ButtonGroup color="primary" aria-label="outlined primary button group" style={{marginLeft:"60%"}}>
         <LinkContainer to="/NewQuestion">
         <Button><AddIcon style={{color:"#e43a30"}}/> Create Question</Button>
