@@ -85,30 +85,7 @@ export default function Home() {
       <div className="questions">
         <div className="titleheader">My Chem101 Questions</div>
         <div className="catbtn">
-        <Button variant="outlined" size="medium"><FolderOpenIcon style={{color:"#e43a30"}}/>&nbsp;<b>New Category</b></Button>
         </div>
-        <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography variant="h5">Sample Question</Typography>
-        <ButtonGroup color="primary" aria-label="outlined primary button group" style={{marginLeft:"60%"}}>
-        <LinkContainer to="/NewQuestion">
-        <Button><AddIcon style={{color:"#e43a30"}}/> Create Question</Button>
-        </LinkContainer>
-        <Button>Rename</Button>
-        <Button style={{color:"#e43a30"}}>Delete</Button>
-      </ButtonGroup>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
         <ListGroup>
           {!isLoading && renderQuestionsList(questions)}
         </ListGroup>

@@ -25,27 +25,12 @@ function Logo(){
         </div>
         <div className="col-sm-5 text-right">
         <LinkContainer to="/settings">
-            <NavItem><SettingsIcon style={{fontSize:"15px"}}/></NavItem>
+            <NavItem><span style={{ 
+              paddingleft: "40px", 
+              paddingRight: "10px",
+              marginTop: "30px"}}>Settings</span><SettingsIcon style={{fontSize:"15px"}}/></NavItem>
         </LinkContainer>
         </div>
-      </div>
-    </div>
-  )
-}
-function Navigation(){
-  return(
-    <div className="container-fluid" id="navigation">
-      <div className="row">
-        <div className="col-sm-4 nav">
-          Assignment
-        </div>
-        <div className="col-sm-4 nav">
-          Class
-        </div>
-        <div className="col-sm-4 nav" style={{color:"#E43A30"}}>
-          Questions
-        </div>
-        
       </div>
     </div>
   )
@@ -93,7 +78,6 @@ function App() {
         
         <Navbar fluid collapseOnSelect>
           {isAuthenticated? (<><Logo />
-                <Navigation />
                <TitleBar /></>):
                (<>
                 <Navbar.Header>
