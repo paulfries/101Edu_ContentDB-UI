@@ -14,12 +14,9 @@ import QuestionTopic from "../data/questionTopic";
 import ReviewerList from "../data/reviewerList";
 import OpenStaxList from "../data/openstaxList";
 import ThoughtTypeList from "../data/thoughtTypeList";
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
-import { render } from "@testing-library/react";
 
 export default function NewQuestion() {
+
   const file = useRef(null);
   const history = useHistory();
   const [questionStatus, setQuestionStatus] = useState("Incomplete");
@@ -89,25 +86,6 @@ export default function NewQuestion() {
   const handleThoughtType = (e) => {
     setThoughtType(e.value);
   };
-
-  
-  const mark=[
-    {
-      value:2,
-      label: "2"
-    },
-    {
-      value:3,
-      label: "3"
-    },
-    {
-      value:4,
-      label: "4"
-    },
-    {
-      value:5,
-      label: "5"
-    }];
 
   function handleClick1() {
     setMcCorrectAnswer1(true);
@@ -222,14 +200,6 @@ export default function NewQuestion() {
     return API.post("questions", "/questions", {
       body: question,
     });
-  }
-
-  function valuetext(value) {
-    return `${value}°C`;
-  }
-
-  function clickHandler(){
-
   }
 
   return (
@@ -442,8 +412,8 @@ export default function NewQuestion() {
                 Multiple Choice Option No. 1
               </ControlLabel>
             </dev>
-            <div class="row">
-            <div class="column left">
+            <div className="row">
+            <div className="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -454,15 +424,15 @@ export default function NewQuestion() {
                 type="checkbox"
               />
             </div>
-            <div class="column middle">
+            <div className="column middle">
               A)
             </div>
-            <div class="middleBelow">
+            <div className="middleBelow">
               <span className="textBold">Correct
               Explanation</span>{"\n"}
               (Optional)
             </div>
-            <div class="column right">
+            <div className="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
@@ -502,8 +472,8 @@ export default function NewQuestion() {
                 Multiple Choice Option No. 2
               </ControlLabel>
             </dev>
-            <div class="row">
-            <div class="column left">
+            <div className="row">
+            <div className="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -514,15 +484,15 @@ export default function NewQuestion() {
                 type="checkbox"
               />
             </div>
-            <div class="column middle">
+            <div className="column middle">
               B)
             </div>
-            <div class="middleBelow">
+            <div className="middleBelow">
               <span className="textBold">Incorrect
               Feeback</span>{"\n"}
               (Optional)
             </div>
-            <div class="column right">
+            <div className="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
@@ -561,8 +531,8 @@ export default function NewQuestion() {
                 Multiple Choice Option No. 3
               </ControlLabel>
             </dev>
-            <div class="row">
-            <div class="column left">
+            <div className="row">
+            <div className="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -573,15 +543,15 @@ export default function NewQuestion() {
                 type="checkbox"
               />
             </div>
-            <div class="column middle">
+            <div className="column middle">
               C)
             </div>
-            <div class="middleBelow">
+            <div className="middleBelow">
               <span className="textBold">Incorrect
               Feeback</span>{"\n"}
               (Optional)
             </div>
-            <div class="column right">
+            <div className="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
@@ -619,8 +589,8 @@ export default function NewQuestion() {
                 Multiple Choice Option No. 4
               </ControlLabel>
             </dev>
-            <div class="row">
-            <div class="column left">
+            <div className="row">
+            <div className="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -631,15 +601,15 @@ export default function NewQuestion() {
                 type="checkbox"
               />
             </div>
-            <div class="column middle">
+            <div className="column middle">
               D)
             </div>
-            <div class="middleBelow">
+            <div className="middleBelow">
               <span className="textBold">Incorrect
               Feeback</span>{"\n"}
               (Optional)
             </div>
-            <div class="column right">
+            <div className="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
@@ -677,8 +647,8 @@ export default function NewQuestion() {
                 Multiple Choice Option No. 5
               </ControlLabel>
             </dev>
-            <div class="row">
-            <div class="column left">
+            <div className="row">
+            <div className="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -689,15 +659,15 @@ export default function NewQuestion() {
                 type="checkbox"
               />
             </div>
-            <div class="column middle">
+            <div className="column middle">
               E)
             </div>
-            <div class="middleBelow">
+            <div className="middleBelow">
               <span className="textBold">Incorrect
               Feeback</span>{"\n"}
               (Optional)
             </div>
-            <div class="column right">
+            <div className="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>

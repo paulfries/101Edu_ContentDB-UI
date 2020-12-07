@@ -340,6 +340,7 @@ export default function Questions() {
     <div className="Questions">
       {question && (
         <form onSubmit={handleSubmit}>
+        <div className="containerDiv">
           <FormGroup controlId="questionStatus">
             <ControlLabel>Question Status</ControlLabel>
             <Select
@@ -476,27 +477,52 @@ export default function Questions() {
               options={ThoughtTypeList}
             />
           </FormGroup>
+          </div>
+          <div className="containerDiv">
           <FormGroup>
+          <div className="headerTitle">
             <label className="timeSuggested" for="timeSuggested">
-              Time Suggested:
+              Suggested Time
             </label>
+            </div>
             <input
-              className="timeField"
+              className="timeField, suggestedTimeCentered"
               defaultValue={timeSuggested}
               id="timeSuggested"
               componentClass="textbox"
               onChange={(e) => setTimeSuggested(e.target.value)}
             />
           </FormGroup>
+          <div className="textBox">
+            <text className="textStyling">
+              The question prompt will be immediately visible to your students when this authored question is opened. 
+              It is recommended to keep the prompt as short and concise as possible 
+              so it is easily readable on student mobile devices such as smartphones.
+            </text>
+          </div>
+        </div>
 
+        <div className="containerDiv">
           <FormGroup controlId="questionStatement">
-            <ControlLabel>Question Statement:</ControlLabel>
+          <div className="headerTitle">
+            <ControlLabel>Question Prompt</ControlLabel>
+            </div>
             <FormControl
               value={questionStatement}
               componentClass="textarea"
               onChange={(e) => setQuestionStatement(e.target.value)}
+              placeholder="e.g. How many protons are in carbon-12 atom?"
             />
+            <div className="textBox">
+            <text className="textStyling">
+              The question prompt will be immediately visible to your students when this authored question is opened. 
+              It is recommended to keep the prompt as short and concise as possible 
+              so it is easily readable on student mobile devices such as smartphones.
+            </text>
+          </div>
           </FormGroup>
+          </div>
+        <div className="containerDiv">
           {question.attachment && (
             <FormGroup>
               <ControlLabel>Attachment</ControlLabel>
@@ -512,17 +538,31 @@ export default function Questions() {
             </FormGroup>
           )}
           <FormGroup controlId="file">
-            {!question.attachment && <ControlLabel>Attachment</ControlLabel>}
+          <div className="headerTitle">
+            {!question.attachment && <ControlLabel>Question Image</ControlLabel>}
+            <div className="attachmentPreview">
             <FormControl onChange={handleFileChange} type="file" />
+            </div>
+            </div>
+            <div className="textBox">
+            <text className="textStyling">
+              You may choose to upload one image to be associated with your authored question. 
+              The question image can be used to include tables of data, figures, or other relevant information associated with the question. 
+              It is recommend to upload a square image so it is easily readable on student mobile devices such as smartphones.
+            </text>
+          </div>
           </FormGroup>
-
+          </div>
+          <FormGroup>
+          <div className="containerDiv">
           <FormGroup controlId="AnswerGroup1">
             <dev>
               <ControlLabel className="answerTitle" for="Answers">
                 Multiple Choice Option No. 1
               </ControlLabel>
             </dev>
-            <dev>
+            <div class="row">
+            <div class="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -532,34 +572,48 @@ export default function Questions() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
-            </dev>
+            </div>
+            <div class="column middle">
+              A)
+            </div>
+            <div class="middleBelow">
+              <span className="textBold">Correct
+              Explanation</span>{"\n"}
+              (Optional)
+            </div>
+            <div class="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
+            
             <FormControl
               value={mcOption1}
               id="Answer"
-              class="answerfield"
               componentClass="textarea"
+              placeholder="e.g. 6"
               onChange={(e) => setMcOption1(e.target.value)}
             />
             <ControlLabel className="fieldTitle" for="Answerfeedback">
               Feedback:
             </ControlLabel>
+
             <FormControl
               value={mcOption1Feedback}
               id="Answerfeedback"
               componentClass="textarea"
+              placeholder="e.g. The number of protons in an atom is equivalent to its atomic number on the periodic table, which is 6 in the case of a carbon atom."
               onChange={(e) => setMcOption1Feedback(e.target.value)}
             />
-
             <FormGroup controlId="file">
               <ControlLabel className="answerAttachment">
                 Attachment
               </ControlLabel>
               <FormControl onChange={handleFileChange} type="file" />
             </FormGroup>
+            </div>
+            </div>
           </FormGroup>
+
 
           <FormGroup controlId="AnswerGroup2">
             <dev>
@@ -567,7 +621,8 @@ export default function Questions() {
                 Multiple Choice Option No. 2
               </ControlLabel>
             </dev>
-            <dev>
+            <div class="row">
+            <div class="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -577,7 +632,16 @@ export default function Questions() {
                 onChange={handleClick2}
                 type="checkbox"
               />
-            </dev>
+            </div>
+            <div class="column middle">
+              B)
+            </div>
+            <div class="middleBelow">
+              <span className="textBold">Incorrect
+              Feeback</span>{"\n"}
+              (Optional)
+            </div>
+            <div class="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
@@ -586,6 +650,7 @@ export default function Questions() {
               id="Answer"
               class="answerfield"
               componentClass="textarea"
+              placeholder="e.g. 12"
               onChange={(e) => setMcOption2(e.target.value)}
             />
             <ControlLabel className="fieldTitle" for="Answerfeedback">
@@ -595,22 +660,28 @@ export default function Questions() {
               value={mcOption2Feedback}
               id="Answerfeedback"
               componentClass="textarea"
+              placeholder="e.g. This is the mass number of carbon-12, which is the number of protons plus neutrons in the atom."
               onChange={(e) => setMcOption2Feedback(e.target.value)}
             />
+
             <FormGroup controlId="file">
               <ControlLabel className="answerAttachment">
                 Attachment
               </ControlLabel>
               <FormControl onChange={handleFileChange} type="file" />
             </FormGroup>
+            </div>
+            </div>
           </FormGroup>
+
           <FormGroup controlId="AnswerGroup3">
             <dev>
               <ControlLabel className="answerTitle" for="Answers">
                 Multiple Choice Option No. 3
               </ControlLabel>
             </dev>
-            <dev>
+            <div class="row">
+            <div class="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -620,7 +691,16 @@ export default function Questions() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
-            </dev>
+            </div>
+            <div class="column middle">
+              C)
+            </div>
+            <div class="middleBelow">
+              <span className="textBold">Incorrect
+              Feeback</span>{"\n"}
+              (Optional)
+            </div>
+            <div class="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
@@ -629,6 +709,7 @@ export default function Questions() {
               id="Answer"
               class="answerfield"
               componentClass="textarea"
+              placeholder="e.g. 12"
               onChange={(e) => setMcOption3(e.target.value)}
             />
             <ControlLabel className="fieldTitle" for="Answerfeedback">
@@ -638,6 +719,7 @@ export default function Questions() {
               value={mcOption3Feedback}
               id="Answerfeedback"
               componentClass="textarea"
+              placeholder="e.g. This is the mass number of carbon-12, which is the number of protons plus neutrons in the atom."
               onChange={(e) => setMcOption3Feedback(e.target.value)}
             />
             <FormGroup controlId="file">
@@ -646,6 +728,8 @@ export default function Questions() {
               </ControlLabel>
               <FormControl onChange={handleFileChange} type="file" />
             </FormGroup>
+            </div>
+          </div>
           </FormGroup>
 
           <FormGroup controlId="AnswerGroup4">
@@ -654,7 +738,8 @@ export default function Questions() {
                 Multiple Choice Option No. 4
               </ControlLabel>
             </dev>
-            <dev>
+            <div class="row">
+            <div class="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -664,7 +749,16 @@ export default function Questions() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
-            </dev>
+            </div>
+            <div class="column middle">
+              D)
+            </div>
+            <div class="middleBelow">
+              <span className="textBold">Incorrect
+              Feeback</span>{"\n"}
+              (Optional)
+            </div>
+            <div class="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
@@ -673,6 +767,7 @@ export default function Questions() {
               id="Answer"
               class="answerfield"
               componentClass="textarea"
+              placeholder="e.g. 12"
               onChange={(e) => setMcOption4(e.target.value)}
             />
             <ControlLabel className="fieldTitle" for="Answerfeedback">
@@ -682,6 +777,7 @@ export default function Questions() {
               value={mcOption4Feedback}
               id="Answerfeedback"
               componentClass="textarea"
+              placeholder="e.g. This is the mass number of carbon-12, which is the number of protons plus neutrons in the atom."
               onChange={(e) => setMcOption4Feedback(e.target.value)}
             />
             <FormGroup controlId="file">
@@ -690,6 +786,8 @@ export default function Questions() {
               </ControlLabel>
               <FormControl onChange={handleFileChange} type="file" />
             </FormGroup>
+            </div>
+          </div>
           </FormGroup>
 
           <FormGroup controlId="AnswerGroup5">
@@ -698,7 +796,8 @@ export default function Questions() {
                 Multiple Choice Option No. 5
               </ControlLabel>
             </dev>
-            <dev>
+            <div class="row">
+            <div class="column left">
               <ControlLabel className="CorrectChkBox" for="CorrectAnswer">
                 Correct
               </ControlLabel>
@@ -708,7 +807,16 @@ export default function Questions() {
                 id="CorrectAnswer"
                 type="checkbox"
               />
-            </dev>
+            </div>
+            <div class="column middle">
+              E)
+            </div>
+            <div class="middleBelow">
+              <span className="textBold">Incorrect
+              Feeback</span>{"\n"}
+              (Optional)
+            </div>
+            <div class="column right">
             <ControlLabel className="fieldTitle" for="Answer">
               Answer:
             </ControlLabel>
@@ -717,6 +825,7 @@ export default function Questions() {
               id="Answer"
               class="answerfield"
               componentClass="textarea"
+              placeholder="e.g. 12"
               onChange={(e) => setMcOption5(e.target.value)}
             />
             <ControlLabel className="fieldTitle" for="Answerfeedback">
@@ -726,28 +835,35 @@ export default function Questions() {
               value={mcOption5Feedback}
               id="Answerfeedback"
               componentClass="textarea"
+              placeholder="e.g. This is the mass number of carbon-12, which is the number of protons plus neutrons in the atom."
               onChange={(e) => setMcOption5Feedback(e.target.value)}
             />
-
+            
             <FormGroup controlId="file">
               <ControlLabel className="answerAttachment">
                 Attachment
               </ControlLabel>
               <FormControl onChange={handleFileChange} type="file" />
             </FormGroup>
+            </div>
+          </div>
+          </FormGroup>
+          </div>
           </FormGroup>
 
           <FormGroup>
-            <ControlLabel className="solutionTitle" for="solution">
-              Solution:
-            </ControlLabel>
-            <FormControl
-              value={solution}
-              id="solution"
-              componentClass="textarea"
-              onChange={(e) => setSolution(e.target.value)}
-            />
-          </FormGroup>
+        <div className="containerDiv">
+          <ControlLabel className="solutionTitle" for="solution">
+            Solution:
+          </ControlLabel>
+          <FormControl
+            value={solution}
+            id="solution"
+            componentClass="textarea"
+            onChange={(e) => setSolution(e.target.value)}
+          />
+        </div>
+        </FormGroup>
 
           <LoaderButton
             block
