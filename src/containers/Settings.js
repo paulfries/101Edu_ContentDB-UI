@@ -7,8 +7,10 @@ import { onError } from "../libs/errorLib";
 import config from "../config";
 import "./Settings.css";
 import { Auth } from "aws-amplify";
-// store what user enters in the form
+import { render } from "react-dom";
+
 export default function Settings() {
+
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
@@ -31,13 +33,15 @@ export default function Settings() {
 
     setIsAuthenticating(false);
   }
-  //call back function
-  async function handleLogout() {
+
+  const handleLogout = async event => {
     await Auth.signOut();
 
     userHasAuthenticated(false);
+    localStorage.clear();
+    window.location.href = '/';
 
-    history.push("/login");
+    history.push("/");
   }
   //email, password, logout buttons
   return (
